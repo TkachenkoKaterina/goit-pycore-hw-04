@@ -24,7 +24,7 @@ def change_contact(args, contacts):
     except ValueError:
         return f"{Back.YELLOW}Invalid command format. Use 'change <імя> <новий_телефон>'.{Style.RESET_ALL}"
     
-def get_phone_by_username(args, contacts):
+def show_phone(args, contacts):
     try:
         if len(args) != 1:
             return f"{Back.YELLOW}Invalid command format. Use 'phone <імя>'.{Style.RESET_ALL}"
@@ -37,7 +37,7 @@ def get_phone_by_username(args, contacts):
     except IndexError:
         return f"{Back.YELLOW}Invalid command format. Use 'phone <імя>'.{Style.RESET_ALL}"
     
-def get_all_phones(contacts):
+def show_all(contacts):
     if len(contacts) == 0:
         return f"{Back.RED}Книга контактів порожня.{Style.RESET_ALL}"
     else:
@@ -60,9 +60,9 @@ def main():
         elif command == "change":
             print(change_contact(args, contacts))
         elif command == "phone":
-            print(get_phone_by_username(args, contacts))
+            print(show_phone(args, contacts))
         elif command == "all":
-            print(get_all_phones(contacts))
+            print(show_all(contacts))
         else:
             print(f"{Fore.RED}Invalid command.{Style.RESET_ALL} Choose from: {Back.LIGHTMAGENTA_EX}hello, add, change, phone, all, close, exit{Style.RESET_ALL}")
 
